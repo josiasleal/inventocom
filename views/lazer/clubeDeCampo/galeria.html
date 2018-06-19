@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col s12">
+		<h5>Galeria de fotos:</h5>
+		<div class="row">
+			<div class="col s12" ng-repeat="photo in gallery">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+            <a href="{{photo.url}}" class="swipebox">
+              <img class="activator" ng-src="{{photo.url}}" >
+            </a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

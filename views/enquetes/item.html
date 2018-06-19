@@ -1,0 +1,24 @@
+<div>Clique na opção de sua escolha para votar na enquete:</div>
+
+<div class="row">
+    <div class="input-field col s12" ng-repeat="enquete in items track by $index">
+        <h4><strong>{{enquete.title}}</strong></h4>
+        <div ng-repeat="item in enquete.questions | orderBy:'opcao'" ng-click="votadas.indexOf(enquete.id) < 0 ? vote(enquete.id, item.id) : jaVotou()" class="eqt__opcao">
+            <strong>{{item.opcao}})</strong>
+            <input class="pureCheck" type="checkbox" name="oi" value="oi"> {{item.resposta}}
+            <div ng-if="votadas.indexOf(enquete.id) >= 0"> Votos: {{item.votos}}</div>
+        </div>
+    </div>
+    <div class="col s12" style="margin-top:25px;">
+        <a class="waves-effect waves-red btn col s12" href="#enquetes">Voltar</a>
+    </div>
+</div>
+
+
+<style>
+    .pureCheck {
+        left: 0 !important;
+        visibility: visible !important;
+        position: relative !important;
+    }
+</style>

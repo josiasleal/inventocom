@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app" ng-class="{'padding-noTemplate' : noTemplate === true}">
+<head>
+    <meta charset="UTF-8">
+    <!--     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>Sindicato Dos Comerciários</title>
+    <link rel="stylesheet" type="text/css" href="css/materialize.css">
+    <link rel="stylesheet" href="css/swipebox.css">
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular-route.min.js"></script>
+    <style>
+			.loader{
+				display: block;
+				width: 100%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background: rgba(255, 255, 255, 0.55);
+				height: 100%;
+				z-index: 100000;                
+			}
+			.loader img{
+				margin-top: 40%;
+			}
+    </style>
+
+</head>
+<body>
+
+    <div id="content">
+        <nav ng-controller="MenuController" class="navbar-fix-top" ng-hide="noTemplate">
+            <div class="nav-wrapper container">
+                <a href="#" data-activates="app-menu" class="button-collapse"> <i class="mdi-navigation-menu"></i>
+                </a>
+                <img src="img/logo.png" id="logo" class="right">
+                <a href="#home" class="right">
+									<svg version="1.1" width="30px" height="56px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											width="547.596px" height="547.596px" viewBox="0 0 547.596 547.596" style="enable-background:new 0 0 547.596 547.596;"
+											xml:space="preserve">
+										<g>
+											<path d="M540.76,254.788L294.506,38.216c-11.475-10.098-30.064-10.098-41.386,0L6.943,254.788
+											c-11.475,10.098-8.415,18.284,6.885,18.284h75.964v221.773c0,12.087,9.945,22.108,22.108,22.108h92.947V371.067
+											c0-12.087,9.945-22.108,22.109-22.108h93.865c12.239,0,22.108,9.792,22.108,22.108v145.886h92.947
+											c12.24,0,22.108-9.945,22.108-22.108v-221.85h75.965C549.021,272.995,552.081,264.886,540.76,254.788z"/>
+										</g>
+									</svg>
+                </a>
+                <ul class="side-nav" id="app-menu">
+									<li>
+										<a href="#/"> <i class="fontello icon-home">&#xe800;</i>
+											Home
+										</a>
+									</li>
+									<li>
+										<a href="#noticias">
+											<i class="material-icons dp48">speaker_notes</i>
+											Notícias
+										</a>
+									</li>
+									<li class="has-subitem">
+										<div>
+											<i class="material-icons dp48">business</i>
+											O Sindicato
+											<ul class="subitens">
+												<li>
+													<a href="#historia">História</a>
+												</li>
+												<li>
+													<a href="#presidencia">Presidência</a>
+												</li>
+												<li>
+													<a href="#diretoria">Diretoria</a>
+												</li>
+												<li>
+													<a href="#responsabilidadeSocial">Responsabilidade Social</a>
+												</li>
+											</ul>
+										</div>
+									</li>
+                <li>
+									<a href="#socios">
+										<i class="fontello icon-thumbs-up">&#xe80a;</i>
+										Fique Sócio
+									</a>
+                </li>
+                <li>
+									<a href="#juridico">
+										<i class="material-icons dp48">assignment</i>
+										Atendimento Jurídico
+									</a>
+                </li>
+                <li class="has-subitem">
+									<div>
+										<i class="material-icons dp48">location_on</i>
+										Onde Estamos
+										<ul class="subitens">
+											<li>
+												<a href="#sede">                                        
+													Sede
+												</a>
+											</li>
+											<li>
+												<a href="#subsedes">
+													Subsedes
+												</a>
+											</li>
+										</ul>
+									</div>
+                </li>
+                <li>
+									<a href="#parceiros">
+										<i class="material-icons dp48">supervisor_account</i>
+										Parcerias
+									</a>
+                </li>
+                <li>
+									<a href="#ambulatorios">
+										<i class="fontello icon-users">&#xe804;</i>
+										Saúde/Ambulatório
+									</a>
+                </li>
+                <li class="has-subitem">
+                    <div>
+                        <i class="fontello icon-emo-happy"></i>
+                        Lazer
+                        <ul class="subitens">
+                            <li>
+                                <a href="#coloniaDeFerias">Colônia de Férias</a>
+                            </li>
+                            <li>
+                                <a href="#clubeDeCampo">Clube de Campo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+								<!-- <li>
+									<a href="#enquetes">
+										<i class="material-icons dp48">insert_chart</i>
+										Enquetes
+									</a>
+                </li> -->
+                <li class="has-subitem scrollDown">
+                    <div>
+                        <i class="fontello icon-megaphone">&#xe809;</i>
+                        Fale Conosco
+                        <ul class="subitens">
+                            <li>
+                                <a href="#denuncia">Denúncia</a>
+                            </li>
+                            <li>
+                                <a href="#faleConosco">Dúvidas/Sugestões</a>
+                            </li>
+                            <li>
+                                <a href="#falePresidente">Fale com o Presidente</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="loader">
+        <div class="row">
+            <div class="col s12 center">
+							<img src="img/loader.gif">
+						</div>
+        </div>
+    </div>
+    
+    <div class="container" id="views-app" ng-view autoscroll ng-class="{'padding-noTemplate' : noTemplate === true}"></div>
+
+    <div class="row" ng-hide="noTemplate" ng-controller="navBottom">
+        <div class="col s6 center-align">
+            <!-- <span style="top: -10px; position: relative;">Curta no Facebook:</span> -->
+            <a class="openFb">
+                <img src="img/like-button.png" style="width: 60px;">
+            </a>
+        </div> 
+        <div class="col s6 center-align">
+            <!-- <span style="top: -10px; position: relative;">Compartihe no Twitter:</span> -->
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.comerciarios.org.br" data-lang="pt" data-size="large" data-related="comerciariossp" data-hashtags="ComerciariosSP"></a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+        <div class="col s12">
+            <ul class="collection addContact" ng-click="whats()">
+                <a>
+                    <li class="collection-item">
+                        <img src="img/whats-button.png">
+                        WhatsApp: 11 99144-6564
+                    </li>
+                </a>
+            </ul>
+        </div> 
+    </div>
+
+</div>
+
+<div class="row tabs-bottom" ng-hide="noTemplate">
+    <div class="tabs">
+        <div class="tab col s4"><a href="#socios"><i class="fontello icon-thumbs-up">&#xe80a;</i>Fique Sócio</a></div>
+        <div class="tab col s4"><a href="#denuncia"><i class="fontello icon-megaphone">&#xe809;</i>Denúncia</a></div>
+        <div class="tab col s4"><a href="#presidencia"><i class="material-icons dp48">question_answer</i>Presidente</a></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/jquery.mask.js"></script>
+<script type="text/javascript" src="lib/materialize.min.js"></script>
+<script type="text/javascript" src="js/controllers.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/jquery.swipebox.min.js"></script>
+</body>
+</html>

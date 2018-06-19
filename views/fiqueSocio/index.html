@@ -1,0 +1,45 @@
+<h3>Fique sócio e só tenha vantagens!!</h3>
+
+<p>
+	Ficando sócio do Sindicato dos Comerciários de São Paulo você pode usufruir todos os
+
+benefícios que o maior sindicato da América Latina oferece aos comerciários da cidade de
+
+São Paulo.
+</p>
+<p>
+O lazer está garantido com a colônia de férias da Praia Grande e o clube de Campo de Cotia.
+
+A saúde fica em dia, utilizando o ambulatório médico e odontológico “Sylvio de
+
+Vasconcellos”. E não é só isso! Os sócios também têm direito a desconto em cursos, escolas,
+
+faculdades e universidades e ainda conta com o apoio do nosso corpo de advogados para
+
+questões jurídicas.
+</p>
+<p>
+	Venha fazer parte do Sindicato dos Comerciários de SP!
+</p>
+
+<div class="row mb20">
+	<ul class="collapsible" data-collapsible="accordion">
+		<li ng-repeat="item in itens">
+			<div class="collapsible-header"> <i class="mdi-content-add small left primary-color-dark"></i>
+				<span ng-bind="item.title" on-finish-render="ngRepeatFinished"></span>
+			</div>
+			<div class="collapsible-body">
+				<p ng-bind-html="item.txt"></p>
+			</div>
+		</li>
+	</ul>
+</div>
+
+<div class="row">
+	<div class="col s6">
+		<a href="#sociosRegulamento" class="waves-effect waves-red btn col s12">Regulamento</a>
+	</div>
+	<div class="col s6">
+		<a href="#fiqueSocio" class="waves-effect waves-red btn col s12">Fique Sócio</a>
+	</div>
+</div>

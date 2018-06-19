@@ -1,0 +1,43 @@
+<div class="col s12">
+		<h5>Tabela de Preços</h5>
+		<table class="table-responsive">
+			<thead>
+				<tr>
+					<th colspan="2">Associados/Dependentes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in resultsOne">
+					<td>{{item.titulo}}</td>
+					<td>{{item.valor | currency:"R$"}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="table-responsive">
+			<thead>
+				<tr>
+					<th colspan="2">Convidados</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in resultsTwo">
+					<td>{{item.titulo}}</td>
+					<td>{{item.valor | currency:"R$"}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="table-responsive">
+			<thead>
+				<tr>
+					<th colspan="2">Convidados para passar o dia no Clube</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in resultsThree">
+					<td>{{item.titulo}}</td>
+					<td>{{item.valor | currency:"R$"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>

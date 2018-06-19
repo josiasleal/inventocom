@@ -1,0 +1,40 @@
+<div class="row">
+	<h3>Escolas e cursos</h3>
+	<img src="img/escolasECursos.jpg" alt="" width="100%">
+</div>
+
+<div ng-include="'views/parceiros/_filtros.html'"></div>
+
+<div class="row mb10">
+
+	<ul class="collection faculdades">
+
+		<li class="collection-item" ng-repeat="escola in escolasCursos" on-finish-render="ngRepeatFinished">
+			<h4 class="title" ng-bind="escola.faculdade"></h4>
+
+			<ul class="collapsible" data-collapsible="accordion">
+				<li>
+					<div class="collapsible-header"> <i class="mdi-content-add small left primary-color-dark"></i>
+						Cursos:
+					</div>
+					<div class="collapsible-body">
+						<p ng-bind-html="escola.curso">							
+						</p>
+					</div>
+				</li>
+			</ul>
+
+			<h5>Endereço:</h5>
+			<p ng-bind-html="escola.endereco">
+			</p>
+
+			<p class="obs" ng-bind-html="escola.obs">				
+			</p>
+		</li>
+	</ul>
+
+	<div class="col s12 m12 center mb10">
+		<div class="waves-effect waves-red btn col s12" ng-click="atualizar()" ng-hide="dados == 0">Ver mais</div>
+	</div>
+
+</div>

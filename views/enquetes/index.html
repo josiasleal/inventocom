@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col s12">
+        <h3>Enquetes</h3>
+        <p> Clique na opção desejada e vote nas enquetes do Sindicato dos Comerciários: </p>
+    </div>
+</div>
+
+<form class="col s12" ng-submit="enviaForm(form)" name="formEnquete">
+
+    <div class="row">
+        <div class="col s12">
+            <ul class="collapsible list-avatar" data-collapsible="accordion">
+                <li ng-repeat="enquete in items track by $index">
+                    <a class="collapsible-header" href="#enquete-item/{{enquete.id}}">
+                        <i class="mdi-content-add small left primary-color-dark"></i>
+                        <span style="color: #2b2b2b;">{{enquete.title}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!--<div class="input-field col s12" ng-repeat="enquete in items track by $index">
+        <h4><strong>{{enquete.title}}</strong></h4>
+        <div ng-repeat="item in enquete.questions | orderBy:'opcao'" ng-click="votadas.indexOf(enquete.id) < 0 ? vote(enquete.id, item.id) : jaVotou()" class="eqt__opcao">
+            <strong>{{item.opcao}})</strong>
+            <input class="pureCheck" type="checkbox" name="oi" value="oi"> {{item.resposta}}
+            <div ng-if="votadas.indexOf(enquete.id) >= 0"> Votos: {{item.votos}}</div>
+        </div>
+    </div>-->
+
+</form>
+
+<br />
+<!--
+<style>
+    .pureCheck {
+        left: 0 !important;
+        visibility: visible !important;
+        position: relative !important;
+    }
+</style>-->

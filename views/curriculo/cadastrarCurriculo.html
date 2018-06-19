@@ -1,0 +1,137 @@
+<h3>Cadastrar Curriculo</h3>
+
+<div class="row">
+	<form class="col s12" id="cadastro" name="cadastro" method="post" action="http://mail.comerciarios.org.br/curriculo/pessoa/insert">
+
+		<h5 class="col s12">Dados para Identificação</h5>
+
+		<div class="input-field col s12">
+			<input id="nome" type="text" class="nome" name="nome" ng-required="true" maxlength="60">
+			<label for="nome">Nome</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="dt_nasc" type="tel" class="dt_nasc" name="dt_nasc" ng-required="true" maxlength="12">
+			<label for="dt_nasc">Data de nascimento</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cpf" type="tel" class="cpf" name="cpf" ng-required="true" maxlength="18">
+			<label for="cpf">CPF</label>
+		</div>
+
+		<div class="section col s12">
+			<h5 class="">Sexo:</h5>
+			<input name="sexo" type="radio" id="M" value="M" />
+			<label for="M">Masculino</label>
+			<input name="sexo" type="radio" id="F" value="F" />
+			<label for="F">Feminino</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="tel_res" type="tel" class="tel_res" name="tel_res" ng-required="true" maxlength="14">
+			<label for="tel_res">Telefone Residencial</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="tel_rec" type="tel" class="tel_rec" name="tel_rec" maxlength="14">
+			<label for="tel_rec">Telefone Recados</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="tel_cel" type="tel" class="tel_cel" name="tel_cel" maxlength="15">
+			<label for="tel_cel">Celular</label>
+		</div>
+		
+		<div class="input-field col s12">
+			<input id="cep" type="tel" class="cep" name="cep" maxlength="10" ng-required="true">
+			<label for="cep">CEP</label>
+		</div>
+		
+		<div class="input-field col s12">
+			<input id="logr" type="text" class="logr" name="logr" maxlength="30" ng-required="true">
+			<label for="logr">Logradouro</label>
+		</div>
+		
+		<div class="input-field col s12">
+			<input id="endereco" type="text" class="endereco" name="endereco" maxlength="60" ng-required="true">
+			<label for="endereco">Nome da Rua</label>
+		</div>
+		
+		<div class="input-field col s12">
+			<input id="bairro" type="text" class="bairro" name="bairro" maxlength="60" ng-required="true">
+			<label for="bairro">Bairro</label>
+		</div>		
+		
+		<div class="input-field col s12">
+			<input id="numero" type="text" class="numero" name="numero" maxlength="10" ng-required="true">
+			<label for="numero">Número</label>
+		</div>
+		
+		<div class="input-field col s12">
+			<input id="complemento" type="text" class="complemento" name="complemento" maxlength="60">
+			<label for="complemento">Complemento</label>
+		</div>	
+		
+		<div class="input-field col s12">
+			<input id="cidade" type="text" class="cidade" name="cidade" maxlength="60" ng-required="true">
+			<label for="cidade">Cidade</label>
+		</div>	
+		
+		<div class="input-field col s12">
+			<select class="browser-default" name="estado" ng-required="true">
+				<option value="" selected disabled>Estado</option>
+				<option value="AC">AC</option>
+				<option value="AL">AL</option>
+				<option value="AM">AM</option>
+				<option value="AP">AP</option>
+				<option value="BA">BA</option>
+				<option value="CE">CE</option>
+				<option value="DF">DF</option>
+				<option value="ES">ES</option>
+				<option value="GO">GO</option>
+				<option value="MA">MA</option>
+				<option value="MG">MG</option>
+				<option value="MS">MS</option>
+				<option value="MT">MT</option>
+				<option value="PA">PA</option>
+				<option value="PB">PB</option>
+				<option value="PE">PE</option>
+				<option value="PI">PI</option>
+				<option value="PR">PR</option>
+				<option value="RJ">RJ</option>
+				<option value="RN">RN</option>
+				<option value="RO">RO</option>
+				<option value="RR">RR</option>
+				<option value="RS">RS</option>
+				<option value="SC">SC</option>
+				<option value="SE">SE</option>
+				<option value="SP">SP</option>
+				<option value="TO">TO</option>
+			</select>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="email" type="text" class="email" name="email" maxlength="60" ng-required="true">
+			<label for="email">Email</label>
+		</div>	
+
+		<div class="input-field col s12">
+			<input id="emailc" type="text" class="emailc" name="emailc" maxlength="60" ng-required="true">
+			<label for="emailc">Confirme o Email</label>
+		</div>	
+
+		<div class="input-field col s12">
+			<input id="senha" type="password" class="senha" name="senha" maxlength="60" ng-required="true">
+			<label for="senha">Senha</label>
+		</div>	
+
+		<div class="input-field col s12">
+			<input id="senha2" type="password" class="senha2" name="senha2" maxlength="60" ng-required="true">
+			<label for="senha2">Confirme a Senha</label>
+		</div>	
+
+		<input type="submit" name="BTEnvia" title="Cadastrar" value="Finalizar Cadastro" class="waves-effect waves-red btn col s12">
+		
+	</form>
+</div>

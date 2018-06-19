@@ -1,0 +1,64 @@
+<div class="row">
+	<div class="col s12 center">
+		<img src="http://aplicativo.comerciarios.org.br/app-data/api/img/coloniaDeFerias/img_cover.jpg" class="responsive-img z-depth-2">
+	</div>
+	<div class="col s12">
+		<h3 ng-bind="titulo"></h3>
+	</div>
+
+	<div class="col s12" ng-bind-html="description"></div>
+
+<div class="col s12">
+	<h5>Localização</h5>
+	<p>
+		{{localizacao}} - 
+		<a href="{{gmaps_link}}">
+			<strong>Abrir no GPS</strong>
+		</a>
+		<ul class="collection phone">
+	    	<a href="tel:{{telefone}}">
+		        <li class="collection-item"><i class="mdi-communication-phone phone-icon"></i>
+		            Telefone: {{telefone}}
+		        </li>
+		    </a>
+		</ul>
+	</p>
+</div>
+
+<p class="col s12">
+	<iframe src="{{gmaps_embed}}" width="100%" height="180" frameborder="0" style="border:0" allowfullscreen></iframe>
+</p>
+
+<div class="col s12" ng-if="!ratedError">
+	<h5 ng-if="!rated">Avalie a {{titulo}}</h5>
+	<h5 ng-if="rated">Classificação geral:</h5>
+	<div class="lazer__results" ng-if="rated">
+		<svg ng-repeat="n in getRating()" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 482.207 482.207"><path d="M482.207 186.973l-159.7-33.704-81.403-141.467L159.7 153.27 0 186.972l109.388 121.135-17.294 162.296 149.01-66.6 149.01 66.6-17.296-162.296"/></svg>
+	</div>
+	<br />
+	<small ng-if="rated">Você classificou {{titulo}} com {{rated}} estrelas.</small>
+	<div class="lazer__stars" ng-if="!rated">
+		<svg ng-repeat="n in [1,2,3,4,5]" ng-click="rate($index+1)" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 55.867 55.867"><path d="M11.287 54.548c-.207 0-.414-.064-.588-.19-.31-.225-.463-.604-.398-.98l3.09-18.017L.303 22.603c-.272-.266-.37-.663-.253-1.024.117-.362.43-.626.807-.68l18.09-2.63 8.09-16.393c.17-.342.517-.558.897-.558s.73.216.896.558l8.09 16.393 18.09 2.63c.378.054.69.317.81.68.116.36.02.76-.254 1.024l-13.09 12.76 3.09 18.018c.063.375-.09.754-.398.978-.308.226-.717.255-1.054.076l-16.18-8.506-16.182 8.506c-.146.076-.306.114-.465.114zM3.15 22.584l12.015 11.713c.235.23.343.56.287.885L12.615 51.72l14.854-7.808c.29-.154.637-.154.93 0l14.852 7.808-2.836-16.538c-.056-.324.052-.655.287-.885L52.72 22.584 36.113 20.17c-.326-.046-.607-.25-.753-.546L27.935 4.578l-7.427 15.047c-.146.295-.427.5-.753.547L3.15 22.584z"/></svg>
+	</div>
+</div>
+
+<div class="col s12" style="margin-top: 30px;">
+	<h5>Reservas e Informações</h5>
+</div>
+<div class="col s6">
+	<a href="#sede" class="waves-effect waves-red btn col s12">Sede</a>
+</div>
+<div class="col s6">
+	<a href="#subsedes" class="waves-effect waves-red btn col s12">Subsedes</a>
+</div>
+
+<div class="col s12" style="margin-top: 10px">
+	<a class="waves-effect waves-red btn col s12" href="#coloniaDeFeriasPrecos">Tabela de Preços</a>
+</div>
+
+<div class="col s12" style="margin-top: 10px">
+	<a class="waves-effect waves-red btn col s12" href="#coloniaDeFeriasGaleria">Galeria de Fotos</a>
+</div>
+
+
+</div>

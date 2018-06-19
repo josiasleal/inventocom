@@ -1,0 +1,430 @@
+<h3>Denúncia</h3>
+
+<p>
+	Aqui você pode denunciar as irregularidade da empresa em que trabalha.
+</p>
+
+<p>
+	Selecione as denúncias e detalhe o máximo possível, quanto mais informação melhor!
+</p>
+
+<p>Para denuncias, preencha o Formulário abaixo:</p>
+
+<div class="row">
+	<form class="col s12" ng-submit="enviaForm(form)" name="formDenuncia">
+		<h5 class="s12">Seus Dados:</h5>
+		<div class="row">
+			<div class="input-field col s12">
+				<input type="text" name="nome_valor" id="nome_valor" ng-model="form.nome_valor" required="true">
+				<label for="nome_valor">Seu Nome</label>
+			</div>
+			<div class="input-field col s12">
+				<input type="email" name="email_valor" id="email_valor" ng-model="form.email_valor" required="true">
+				<label for="email_valor">Seu Email</label>
+			</div>
+			<div class="input-field col s12">
+				<input type="tel" name="telefone_valor" id="telefone_valor" class="telefone" ng-model="form.telefone_valor" required="true">
+				<label for="telefone_valor">Telefone</label>
+			</div>
+		</div>
+		<h5 class="s12">Dados da Empresa:</h5>
+		<div class="row">
+
+			<div class="col s12">
+				<h6>Localize sua Empresa:</h6>
+			</div>
+			<div class="input-field col s12" ng-hide="formFaleConosco.getEndEmpByCnpj">
+				<input type="text" name="getEmpAtivaByName" id="getEmpAtivaByName"
+				ng-model="form.getEmpAtivaByName" ng-required="formFaleConosco.getEndEmpByCnpj == undefined" ng-model="form.getEmpAtivaByName">
+				<label for="getEmpAtivaByName">Empresa LTDA</label>
+			</div>
+			<div class="input-field col s12" ng-hide="form.getEmpAtivaByName">
+				<input type="tel" name="getEndEmpByCnpj" id="getEndEmpByCnpj" id="cnpj"
+				ng-model="formFaleConosco.getEndEmpByCnpj" ng-required="form.getEmpAtivaByName == undefined" ng-model="form.getEndEmpByCnpj">
+				<label for="getEndEmpByCnpj">99.999.999/9999-99</label>
+			</div>
+			<div class="col s12 m12 center mb20">
+				<button type="button" class="waves-effect waves-red btn"
+					ng-disabled="( form.getEmpAtivaByName == undefined || form.getEmpAtivaByName.length < 3 ) && formFaleConosco.getEndEmpByCnpj == undefined"
+					ng-click="pesquisarEmpresa(form.getEmpAtivaByName, formFaleConosco.getEndEmpByCnpj)">Localizar Empresa</button>
+			</div>
+			<!-- Resultado da Empresa -->
+			<div class="col s12 mb20" ng-show="empresaPesquisada.length > 0 ">
+				<h6>Selecione sua empresa:</h6>
+				<select name="empresaEncontrada" id="empresaSelect" ng-model="empresaSelecionada" ng-options="e.NM_BAIRRO group by e.NM for e in empresaPesquisada" ng-change="setHidden()"
+				class="browser-default">
+					<option value="" disabled selected>Selecione</option>
+				</select>
+			</div>
+			<div class="col s12" ng-show="empresaSelecionada || empresaPesquisadaByCnpj.length > 0">
+				<table class="bordered table-responsive">
+					<tbody>
+						<tr>
+							<td>Endereço</td>
+							<td>{{empresaSelecionada.NM_ENDERECO || empresaPesquisadaByCnpj[0].ENDERECOS}}</td>
+						</tr>
+						<tr>
+							<td>Empresa</td>
+							<td>{{empresaSelecionada.NM || empresaPesquisadaByCnpj[0].RAZAO_SOCIAL}}</td>
+						</tr>
+						<tr>
+							<td>Cnae</td>
+							<td>{{empresaSelecionada.CNAE_DESCRICAO || empresaPesquisadaByCnpj[0].CNAE_DESCRICAO}}</td>
+						</tr>
+						<tr>
+							<td>Convenção</td>
+							<td>{{empresaSelecionada.SGS_ENTI_CONV_NOME || empresaPesquisadaByCnpj[0].CONVENCAO}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+			<div class="input-field col s12">
+				<input type="tel" name="telefone_empresa_valor" id="telefone_empresa_valor" class="telefone" ng-model="form.telefone_empresa_valor" required="true">
+				<label for="telefone_empresa_valor">Telefone da empresa</label>
+			</div>
+			<div class="input-field col s12">
+				<input type="number" name="empregados_empresa" id="empregados_empresa" ng-model="form.empregados_empresa">
+				<label for="empregados_empresa">Número de empregados</label>
+			</div>
+			<div class="input-field col s12">
+				<input type="text" name="resp_valor" id="resp_valor" ng-model="form.resp_valor" required="true">
+				<label for="resp_valor">Responsável da empresa</label>
+			</div>
+		</div>
+		<h5 class="s12">Denunciar:</h5>
+		<div class="row">
+			<p class="col s12">
+				Selecione abaixo somente as irregularidades que ocorrem na empresa.
+			</p>
+			<p class="col s12">
+				Se possível detalhe o fato ocorrido informando como, onde e quando ocorreu:
+			</p>
+		</div>
+		<div class="row">
+			<div class="section">
+	<input type="checkbox" id="assedio" name="assedio" value="1" ng-model="assedioMoral" />
+	<label for="assedio">Assédio Moral e Rigor Excessivo</label>
+</div>
+<div class="row" ng-if="assedioMoral == '1'">
+	<div class="section col s12">
+		<input name="assedio_tipo" type="radio" id="SEXUAL" value="SEXUAL" ng-model="form.assedio_tipo" />
+		<label for="SEXUAL">Sexual</label>
+		<input name="assedio_tipo" type="radio" id="MORAL" value="MORAL" ng-model="form.assedio_tipo" />
+		<label for="MORAL">Moral</label>
+	</div>
+	<div class="input-field col s12">
+		<input type="text" name="assedio_valor" id="assedio_valor" class="text"
+		ng-model="form.assedio_valor">
+		<label for="assedio_valor">Nome do Assediador</label>
+	</div>
+	<div class="input-field col s12">
+		<input type="text" name="assedio_cargo_valor" id="assedio_cargo_valor" class="text"
+		ng-model="form.assedio_cargo_valor">
+		<label for="assedio_cargo_valor">Cargo do Assediador</label>
+	</div>
+	<div class="input-field col s12">
+		<textarea name="assedio_descricao_valor" id="assedio_descricao_valor" cols="30" rows="3" maxlength="1200" class="materialize-textarea"
+		ng-model="form.assedio_descricao_valor"></textarea>
+		<label for="assedio_descricao_valor">Descrição do Assédio</label>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="atraso_pgto" name="atraso_pgto" value="1" ng-model="form.atrasoPagamento" />
+	<label for="atraso_pgto">Atraso habitual no pagamento</label>
+</div>
+<div class="row" ng-if="form.atrasoPagamento == '1'">
+	<div class="input-field col s4">
+		<input type="checkbox" id="atraso_pgto_valor2" name="atraso_pgto_valor[]" value="Salário" 
+		ng-model="form.atraso_pgto_valorCACF" ng-true-value="'Salário'"/>
+		<label for="atraso_pgto_valor2">Salário</label>
+	</div>
+	<div class="input-field col s8">
+		<input type="checkbox" id="atraso_pgto_valor1" name="atraso_pgto_valor[]" value="Adiantamento quinzenal" 
+		ng-model="form.atraso_pgto_valorCACF" ng-true-value="'Adiantamento quinzenal'"/>
+		<label for="atraso_pgto_valor1">Adiantamento Quinzenal</label>
+	</div>
+	<div class="input-field col s7">
+		<input type="number" name="atraso_pgto_periodo" id="atraso_pgto_periodo" ng-model="form.atraso_pgto_periodo">
+		<label for="atraso_pgto_periodo">Quanto tempo de atraso?</label>
+	</div>
+	<div class="input-field col s5">
+		<select class="browser-default" name="atraso_periodo" id="atraso_periodo" ng-model="form.atraso_periodo">
+			<option value="" disabled>Selecione</option>
+			<option selected value="DIAS">DIAS</option>
+			<option value="MESES">MESES</option>
+		</select>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="bnc_semregra" name="bnc_semregra" value="1" ng-model="form.bcoHrsSemRegras" />
+	<label for="bnc_semregra">Banco de horas sem regras</label>
+</div>
+<div class="row" ng-if="form.bcoHrsSemRegras == '1'">
+	<div class="section col s12">
+		<h6>Concede espelho de pontos até o 5° dia útil?</h6>
+		<input name="bnc_semregra_espelho" type="radio" id="bnc_semregra_espelho_s" value="Sim" ng-model="form.bnc_semregra_espelho" />
+		<label for="bnc_semregra_espelho_s">Sim</label>
+		<input name="bnc_semregra_espelho" type="radio" id="bnc_semregra_espelho_n" value="Não" ng-model="form.bnc_semregra_espelho"/>
+		<label for="bnc_semregra_espelho_n">Não</label>
+	</div>
+	<div class="input-field col s12">
+		<textarea name="bnc_semregra_valor" id="bnc_semregra_valor" cols="30" rows="3" maxlength="1200" class="materialize-textarea" placeholder="Descreva os detalhes e informe qual prazo que está ocorrendo a compensasão" ng-model="form.bnc_semregra_valor"></textarea>
+		<!-- <label for="bnc_semregra_valor">Descreva</label> -->
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="comissao_pf" name="comissao_pf" value="1" ng-model="form.comissaoPorFora"/>
+	<label for="comissao_pf">Comissões "por fora"</label>
+</div>
+<div class="row" ng-if="form.comissaoPorFora == '1'">
+	<div class="input-field col s5">
+		<input type="checkbox" id="comissao_fora_tipo1" name="comissao_fora_tipo[]" value="Em dinheiro"
+		ng-model="form.comissao_fora_tipoCACF" ng-true-value="'Em dinheiro'" />
+		<label for="comissao_fora_tipo1">Em Dinheiro</label>
+	</div>
+	<div class="input-field col s7">
+		<input type="checkbox" id="comissao_fora_tipo2" name="comissao_fora_tipo[]" value="Depósitos bancários"
+		ng-model="form.comissao_fora_tipoCACF" ng-true-value="'Depósitos bancários'" />
+		<label for="comissao_fora_tipo2">Depósitos Bancários</label>
+	</div>
+	<div class="input-field col s12">
+		<textarea name="comissao_valor" id="comissao_valor" cols="30" rows="3" maxlength="1200" class="materialize-textarea" placeholder="Descreva detalhes e informe a quanto tempo isso ocorreu ou se ainda ocorre." ng-model="form.comissao_valor"></textarea>
+		<!-- <label for="">Descreva</label> -->
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="decimo_terceiro" name="decimo_terceiro" value="1" ng-model="form.DcmTrcNPg" />
+	<label for="decimo_terceiro">Décimo terceiro, parcela não paga</label>
+</div>
+<div class="row" ng-if="form.DcmTrcNPg == '1'">
+	<div class="input-field col s5">
+		<input type="checkbox" id="decimo_terceiro_valor1" name="decimo_terceiro_valor[]" value="1° parcela não pagou" 
+		ng-model="decimo_terceiro_valorCACF" ng-true-value="1° parcela não pagou" />
+		<label for="decimo_terceiro_valor1">1° parcela</label>
+	</div>
+	<div class="input-field col s7">
+		<input type="checkbox" id="decimo_terceiro_valor2" name="decimo_terceiro_valor[]" value="2° parcela não pagou" 
+		ng-model="decimo_terceiro_valorCACF" ng-true-value="2° parcela não pagou" />
+		<label for="decimo_terceiro_valor2">2° parcela</label>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="desvio_func" name="desvio_func" value="1" ng-model="form.desvioFuncao" />
+	<label for="desvio_func">Desvio de Função</label>
+</div>
+<div class="row" ng-if="form.desvioFuncao == '1'">
+	<div class="input-field col s12">
+		<textarea name="desvio_func_valor" id="desvio_func_valor" cols="30" rows="3" maxlength="1200" class="materialize-textarea" ng-model="form.desvio_func_valor"></textarea>
+		<label for="desvio_func_valor">Especificar o desvio da função</label>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="registro" name="registro" value="1" ng-model="form.faltaRegistroCarteira" />
+	<label for="registro">Falta de registro em carteira</label>
+</div>
+<div class="row" ng-if="form.faltaRegistroCarteira == '1'">
+	<div class="input-field col s7">
+		<input type="number" name="registro_valor" id="registro_valor" class="text" ng-model="registro_valor">
+		<label for="registro_valor">Há quanto tempo?</label>
+	</div>
+	<div class="input-field col s5">
+		<select class="browser-default" name="registro_periodo" id="registro_periodo" ng-model="registro_periodo">
+			<option value="" selected disabled>Selecione</option>
+			<option value="MESES">MESES</option>
+			<option value="ANOS">ANOS</option>
+		</select>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="ferias" name="ferias" value="1" ng-model="form.feriasVencidas" />
+	<label for="ferias">Férias Vencidas</label>
+</div>
+<div class="row" ng-if="form.feriasVencidas == '1'">
+	<div class="input-field col s7">
+		<input type="number" name="ferias_valor" id="ferias_valor" class="text" ng-model="form.ferias_valor">
+		<label for="ferias_valor">Há quanto tempo?</label>
+	</div>
+	<div class="input-field col s5">
+		<select class="browser-default" name="ferias_periodo" id="ferias_periodo" ng-model="form.ferias_periodo">
+			<option value="" selected disabled>Selecione</option>
+			<option value="MESES">MESES</option>
+			<option value="ANOS">ANOS</option>
+		</select>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="fgts" name="fgts" value="1" ng-model="fgtsNDepositam" />
+	<label for="fgts">FGTS não depositam</label>
+</div>
+<div class="row" ng-if="fgtsNDepositam == '1'">
+	<div class="input-field col s7">
+		<input type="number" name="ferias_valor" id="fgts_valor" class="text" ng-model="form.ferias_valor">
+		<label for="fgts_valor">Há quanto tempo?</label>
+	</div>
+	<div class="input-field col s5">
+		<select class="browser-default" name="fgts_periodo" id="fgts_periodo" ng-model="form.fgts_periodo">
+			<option value="" selected disabled>Selecione</option>
+			<option value="MESES">MESES</option>
+			<option value="ANOS">ANOS</option>
+		</select>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="inss" name="inss" value="1" ng-model="form.inssNRepassam" />
+	<label for="inss">INSS - Não repassam os recolhimentos</label>
+</div>
+<div class="row" ng-if="form.inssNRepassam == '1'">
+	<div class="input-field col s7">
+		<input type="number" name="inss_valor" id="inss_valor" class="text" ng-model="form.inss_valor">
+		<label for="inss_valor">Há quanto tempo?</label>
+	</div>
+	<div class="input-field col s5">
+		<select class="browser-default" name="inss_periodo" id="inss_periodo" ng-model="form.inss_periodo">
+			<option value="" selected disabled>Selecione</option>
+			<option value="MESES">MESES</option>
+			<option value="ANOS">ANOS</option>
+		</select>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="recusa_atestado" name="recusa_atestado" value="1" ng-model="form.nAccAtestado" />
+	<label for="recusa_atestado">Não aceitam atestados médicos</label>
+</div>
+<div class="row" ng-if="form.nAccAtestado == '1'">
+	<div class="input-field col s5">
+		<select class="browser-default" name="recusa_atestado_valor" id="recusa_atestado_valor" ng-model="form.recusa_atestado_valor">
+			<option value="" selected disabled>Especifique</option>
+			<option value="SUS">SUS</option>
+			<option value="Sindicato">Sindicato</option>
+			<option value="Convênio da empresa">Convênio da empresa</option>
+		</select>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="obs_piso" name="obs_piso" value="1" ng-model="form.nObservamPiso" />
+	<label for="obs_piso">Não observam o piso salarial</label>
+</div>
+<div class="row" ng-if="form.nObservamPiso == '1'">
+	<div class="input-field col s7">
+		<input type="number" name="piso_valor" id="piso_valor" class="text" ng-model="form.piso_valor">
+		<label for="piso_valor">Qual valor é recebido? (R$)</label>
+	</div>
+	<div class="input-field col s5">
+		<select name="tipo_empresa_valor" id="tipo_empresa_valor" class="browser-default" ng-model="form.tipo_empresa_valor">
+			<option value="" selected="" disabled>Empresa Tipo</option>
+			<option value="ME">ME</option>
+			<option value="EPP">EPP</option>
+			<option value="Até 10 Empregados">Até 10 empregados</option>
+			<option value="Acima de 10 Empregados">Acima de 10 empregados</option>
+		</select>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="hora_extra" name="hora_extra" value="1" ng-model="form.nPagaHrExtra" />
+	<label for="hora_extra">Não Pagam hora extra</label>
+</div>
+<div class="row" ng-if="form.nPagaHrExtra == '1'">
+	<div class="input-field col s12">
+		<textarea name="hora_extra_valor" id="hora_extra_valor" cols="30" rows="3" maxlength="1200" class="materialize-textarea" ng-model="form.hora_extra_valor"></textarea>
+		<label for="hora_extra_valor">Descreva</label>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="sem_refeitorio_valor" name="sem_refeitorio_valor" value="1" ng-model="form.sem_refeitorio_valor" />
+	<label for="sem_refeitorio_valor">Não Possui refeitório</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="refeitorio_inad" name="refeitorio_inad" value="1" ng-model="form.refeitorioInadequado" />
+	<label for="refeitorio_inad">Refeitório em condições inadequadas</label>
+</div>
+<div class="row" ng-if="form.refeitorioInadequado == '1'">
+	<div class="input-field col s12">
+		<textarea name="refeitorio_inad_valor" id="refeitorio_inad_valor" cols="30" rows="3" maxlength="1200" class="materialize-textarea" ng-model="form.refeitorio_inad_valor"></textarea>
+		<label for="refeitorio_inad_valor">Descreva</label>
+	</div>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="domingos_ref_valor" name="domingos_ref_valor" value="1" ng-model="form.domingos_ref_valor" />
+	<label for="domingos_ref_valor">Nos domingos trabalhados, não concede benefício de refeição</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="domingos_vt_valor" name="domingos_vt_valor" value="1" ng-model="form.domingos_vt_valor" />
+	<label for="domingos_vt_valor">Nos domingos trabalhados, VT sem ônus</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="domingos_folga_valor" name="domingos_folga_valor" value="1" ng-model="form.domingos_folga_valor" />
+	<label for="domingos_folga_valor">Nos domingos trabalhados, não concede folga compensatória</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="feriado_ref_valor" name="feriado_ref_valor" value="1" ng-model="form.feriado_ref_valor" />
+	<label for="feriado_ref_valor">Nos feriados trabalhados, não concede benefício de refeição</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="feriado_vt_valor" name="feriado_vt_valor" value="1" ng-model="form.feriado_vt_valor" />
+	<label for="feriado_vt_valor">Nos feriados trabalhados, VT sem ônus</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="feriado_folga_valor" name="feriado_folga_valor" value="1" ng-model="form.feriado_folga_valor" />
+	<label for="feriado_folga_valor">Nos feriados trabalhados, não concede folga compensatória</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="feriado_dobro_valor" name="feriado_dobro_valor" value="1" ng-model="form.feriado_dobro_valor"/>
+	<label for="feriado_dobro_valor">Nos feriados trabalhados, não paga hora em dobro</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="transporte_nao_valor" name="transporte_nao_valor" value="1" ng-model="form.transporte_nao_valor"/>
+	<label for="transporte_nao_valor">Vale transporte não concedido</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="transporte_dinheiro_valor" name="transporte_dinheiro_valor" value="1" ng-model="form.transporte_dinheiro_valor"/>
+	<label for="transporte_dinheiro_valor">Vale transporte em dinheiro</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="transporte_insuficiente_valor" name="transporte_insuficiente_valor" value="1" ng-model="form.transporte_insuficiente_valor"/>
+	<label for="transporte_insuficiente_valor">Vale transporte insuficiente</label>
+</div>
+
+<div class="section">
+	<input type="checkbox" id="outros" name="outros" value="1" ng-model="form.outros" />
+	<label for="outros">Outros</label>
+</div>
+<div class="row" ng-if="form.outros == '1'">
+	<div class="input-field col s12">
+		<textarea name="outros_valor" id="outros_valor" cols="30" rows="3" maxlength="1200" class="materialize-textarea"></textarea>
+		<label for="outros_valor">Descreva</label>
+	</div>
+</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12 center">
+				<button type="submit" class="waves-effect waves-red btn">Enviar Denúncia</button>
+			</div>
+		</div>
+	</form>
+</div>

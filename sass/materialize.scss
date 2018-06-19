@@ -1,0 +1,380 @@
+@charset "UTF-8";
+
+
+
+// Mixins
+@import "components/prefixer";
+@import "components/mixins";
+@import "components/color";
+
+// Variables;
+@import "components/variables";
+
+// Reset
+@import "components/normalize";
+
+// components
+@import "components/global";
+@import "components/icons-material-design";
+@import "components/grid";
+@import "components/navbar";
+@import "components/roboto";
+@import "components/typography";
+@import "components/cards";
+@import "components/toast";
+@import "components/tabs";
+@import "components/tooltip";
+@import "components/buttons";
+@import "components/dropdown";
+@import "components/waves";
+@import "components/modal";
+@import "components/collapsible";
+@import "components/materialbox";
+@import "components/form";
+@import "components/table_of_contents";
+@import "components/sideNav";
+@import "components/preloader";
+@import "components/slider";
+@import "components/date_picker/default.scss";
+@import "components/date_picker/default.date.scss";
+@import "components/date_picker/default.time.scss";
+
+
+/*** Sindicato ***/
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello/fontello.eot?9430007');
+  src: url('../font/fontello/fontello.eot?9430007#iefix') format('embedded-opentype'),
+       url('../font/fontello/fontello.woff?9430007') format('woff'),
+       url('../font/fontello/fontello.ttf?9430007') format('truetype'),
+       url('../font/fontello/fontello.svg?9430007#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(../font/material-design-icons/MaterialIcons-Regular.woff2) format('woff2'),
+       url(../font/material-design-icons/MaterialIcons-Regular.woff) format('woff'),
+       url(../font/material-design-icons/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+html{
+	height: 100%;	
+	&.padding-noTemplate{
+		background-image: url(../img/bg.jpg);
+	    background-size: cover;
+		body{
+			padding-bottom: 0 !important;
+		}
+	}
+}
+
+body{
+	padding-bottom: 50px;
+}
+
+.container.padding-noTemplate{
+	padding-top: 10px !important;
+}
+
+.fontello{
+	font-family: "fontello";
+    font-style: normal;
+}
+
+#app-menu{
+	.fontello,
+	.material-icons{
+	    font-size: 15px;
+	    display: inline-block;
+	    margin-right: 8px;
+        vertical-align: sub;
+	}
+	.has-subitem{
+	    background-color: transparent;
+	    div{
+	    	color: #fff;
+		    display: block;
+		    font-size: 1rem;
+		    padding: 0 15px;
+		    a{
+		    	padding: 0;
+		    }
+	    }
+	}
+	.subitens{
+		display: none;
+		li{
+			padding: 0 5px;
+		}
+	}
+	li > div,
+	li:not(:last-child) > a{
+		border-bottom: 1px dotted #6B6B6B;
+	}
+}
+
+.side-nav li{
+	line-height: 3.4;
+	line-height: 8.2vh;
+}
+
+#logo{
+	width: 75px;
+    margin-left: 20px;
+}
+
+.navbar-fix-top{
+	position: fixed;	
+	z-index: 1000;
+	top: 0;
+	//overflow: visible !important;
+}
+
+#views-app{
+	padding-top: 80px;
+}
+
+.align-center{
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+}
+
+.faculdades{
+	.collection-item{
+		.title{
+			font-weight: bold;
+			color: $primary-color-dark;
+		}
+		h5{
+		    margin-bottom: -10px;
+		}
+		.obs{
+			color: $primary-color-dark;
+		}
+		.primary-color-dark{
+			color: $primary-color-dark;
+		}
+	}
+}
+
+.row.tabs-bottom{
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	z-index: 998;
+	margin-bottom: 0;
+	background-color: #303030;
+	color: #fff;
+	.tabs{
+	    background-color: transparent;        
+	    .tab{
+	    	line-height: 1.6;	    	
+	    }
+		a{
+			color: #fff;
+		    font-size: 10px;
+		    padding-top: 9px;
+		    border-right: 1px dotted #7B7B7B;
+	        &:last-child{
+	    	    border-left: 1px dotted #7B7B7B;
+	        }
+		    .fontello{
+		    	display: block;
+		    }
+		}
+	}
+	.indicator{
+	    background-color: transparent;
+	}
+	.material-icons{
+	    font-size: 14px;
+	    display: block;
+	    text-align: center;
+	    margin: 0 auto 1px auto;
+	}
+}
+
+.collection{
+	&.phone{
+		.phone-icon{
+			font-size: 18px;
+		    float: left;
+		    margin-right: 10px;
+		    color: $primary-color-dark !important;
+		}
+		a{
+			color: inherit;
+		}
+	}	
+}
+
+.addContact{
+	a{
+		color: #303030;
+	}
+	img{
+		vertical-align: middle;
+	    width: 50px;
+	}
+}
+
+.home-itens{
+	.col-logo{
+		margin-bottom: 15px !important;
+		.content{
+			height: 140px;
+			width: 140px;
+			img{
+				width: 110px;
+			}
+		}
+	}
+	.home-border{
+		position:relative;
+		&:after{
+		    content: "";
+		    border: 1px solid #fff;
+		    display: block;
+		    position: absolute;
+		    top: 5%;
+		    left: 5%;
+		    width: 90%;
+		    height: 90%;
+		    border-radius: 100%;
+		}
+	}
+	a{
+		color: inherit;
+		display: block;
+	    margin: 0px;
+	    width: 100%;
+	    .content{
+	    	position:relative;
+			border: 1px solid #a25312;
+		    border-radius: 50%;
+		    width: 90px;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex; 
+	    	-webkit-align-items: center;
+	    	align-items: center;
+		    -webkit-justify-content: center;
+		    justify-content: center;
+		    height: 85px;
+	        margin: 0 auto;
+		    .fontello,
+		    .material-icons{
+				color: #fff;
+				font-size: 50px;
+			}
+		}
+		p{
+		    margin: 5px 0 0 0;
+		    line-height: 1.2;
+		    font-size: 12px;
+		    text-transform: uppercase;
+		    color: #fff;
+		    font-weight: bold;
+		}
+	}
+	.col{
+		padding: 0 0.75rem;
+	    margin-bottom: 20px;
+		display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+		display: -ms-flexbox;  /* TWEENER - IE 10 */
+		display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+		display: flex; 
+    	-webkit-align-items: flex-start;
+    	-webkit-justify-content: center;
+	}
+}
+
+.card-noticia{
+	.card-content.category{
+	    padding: 3px 20px 0px 20px;
+	    h5{
+	    	text-transform: capitalize;
+	    }
+	}
+}
+
+.image-noticia{
+	max-height: 200px;
+    overflow: hidden;
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+	display: -ms-flexbox;  /* TWEENER - IE 10 */
+	display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+	display: flex; 
+    -webkit-align-items: center;
+}
+
+.card-content.text{
+    padding: 0px 20px 10px 20px !important;
+    h4{
+	    margin-bottom: 0;
+    }
+}
+
+.card-text{
+    box-shadow: none !important;
+    margin: 0;
+}
+
+.lazer__stars,
+.lazer__results{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	svg{
+		margin: 0 5%;
+	}
+}
+
+/* Enquetes */
+.eqt__opcao{
+	padding: 3px 0;
+	&:active{
+		font-weight: bold
+	}
+}

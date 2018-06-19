@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col s12 m6" ng-repeat="noticia in noticias">
+		<div class="card card-noticia">
+			<div class="card-content category">
+				<h5 class="">
+					<strong>{{noticia.categoria}}</strong>
+				</h5>
+			</div>
+			<div class="card-image image-noticia" ng-if="noticia.imagem">
+				<img ng-src="http://inventocom.com.br/comerciarios/admin/img/noticias/{{noticia.imagem}}">
+			</div>
+			<div class="card-content text">
+				<h4 class="">
+					<a>{{noticia.titulo}}</a>
+				</h4>
+			</div>
+			<ul class="collapsible card-text" data-collapsible="accordion" on-finish-render="ngRepeatFinished">
+				<li>
+					<div class="collapsible-header">
+						<i class="mdi-content-add small left primary-color-dark"></i>
+						Leia mais...
+					</div>
+					<div class="collapsible-body">
+						<p ng-bind-html="noticia.chamada">
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

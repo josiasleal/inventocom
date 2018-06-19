@@ -1,0 +1,132 @@
+<h3>Dúvidas</h3>
+
+<br>
+
+<h5>Preencha o Formulário:</h5>
+
+<br>
+
+<div class="row">
+	<form class="col s12" ng-submit="enviaForm(form)" name="formFaleConosco">
+		<input id="assunto" name="assunto_id" type="hidden" ng-model="form.assunto_id" value="4">
+		<div class="row">
+			<div class="col s12">
+				<h6>Selecione:</h6>
+				<p>
+					<input type="radio" ng-required="!form.tipo_pessoa" ng-model="form.tipo_pessoa" id="tipo_f" value="F">
+					<label for="tipo_f">Pessoa Física</label>
+				</p>
+				<p>
+					<input type="radio" ng-required="!form.tipo_pessoa" ng-model="form.tipo_pessoa" id="tipo_j" value="J">
+					<label for="tipo_j">Pessoa Jurídica</label>
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12" ng-if="form.assunto == '1'">
+				<input id="matricula" name="matricula" type="number" ng-model="form.matricula" maxlength="10" ng-required="form.assunto == '1'">
+				<label for="matricula">Matricula de Associado</label>
+			</div>
+			<div class="input-field col s12">
+				<input id="nome" name="nome" type="text" class="validate" ng-model="form.nome" required>
+				<label for="nome">Nome:</label>
+			</div>
+			<div class="input-field col s12">
+				<input id="email" name="email" type="email" class="validate" ng-model="form.email">
+				<label for="email">Email</label>
+			</div>
+			<div class="input-field col s12">
+				<input id="telefone" name="telefone" type="tel" class="validate" ng-model="form.telefone" required>
+				<label for="telefone">Telefone</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<h6>Localize sua Empresa:</h6>
+			</div>
+			<div class="input-field col s12" ng-hide="formFaleConosco.empresaCnpj">
+				<input type="text" name="getEmpAtivaByName" id="getEmpAtivaByName" ng-model="formFaleConosco.empresaNome" class="">
+				<label for="getEmpAtivaByName">Empresa LTDA</label>
+			</div>
+			<div class="input-field col s12" ng-hide="formFaleConosco.empresaNome">
+				<input type="tel" name="getEmpByCnpj" id="getEmpByCnpj" id="cnpj" ng-model="formFaleConosco.empresaCnpj" class="">
+				<label for="getEmpByCnpj">99.999.999/9999-99</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12 center mb20">
+				<button type="button" class="waves-effect waves-red btn"
+					ng-disabled="( formFaleConosco.empresaNome == undefined || formFaleConosco.empresaNome.length < 3 ) && formFaleConosco.empresaCnpj == undefined"
+					ng-click="pesquisarEmpresa(formFaleConosco.empresaNome, formFaleConosco.empresaCnpj)">Localizar Empresa</button>
+			</div>
+		</div>
+		<!-- Resultado da Empresa -->
+		<div class="row">
+			<div class="col s12 mb20" ng-show="empresaPesquisada.length > 0 ">
+				<h6>Selecione sua empresa:</h6>
+				<select name="empresaEncontrada" id="empresaSelect" ng-model="empresaSelecionada" ng-options="e.NM_BAIRRO group by e.NM for e in empresaPesquisada" ng-change="setHidden()"
+				class="browser-default">
+					<option value="" disabled selected>Selecione</option>
+				</select>
+			</div>
+			<div class="col s12" ng-show="empresaSelecionada || empresaPesquisadaByCnpj.length > 0">
+				<table class="bordered table-responsive">
+					<tbody>
+						<tr>
+							<td>Endereço</td>
+							<td>{{empresaSelecionada.NM_ENDERECO || empresaPesquisadaByCnpj[0].ENDERECOS}}</td>
+						</tr>
+						<tr>
+							<td>Empresa</td>
+							<td>{{empresaSelecionada.NM || empresaPesquisadaByCnpj[0].RAZAO_SOCIAL}}</td>
+						</tr>
+						<tr>
+							<td>Cnae</td>
+							<td>{{empresaSelecionada.CNAE_DESCRICAO || empresaPesquisadaByCnpj[0].CNAE_DESCRICAO}}</td>
+						</tr>
+						<tr>
+							<td>Convenção</td>
+							<td>{{empresaSelecionada.SGS_ENTI_CONV_NOME || empresaPesquisadaByCnpj[0].CONVENCAO}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12" ng-if="form.assunto == '2'">
+				<select name="assunto_contribuicao" id="assunto_contribuicao" title="Selecione o Assunto" class="browser-default" ng-model="form.assunto_contribuicao" ng-required="form.assunto == '2'">
+					<option value="">Selecione o Assunto</option>
+					<option value="SINDICAL">Sindical</option>
+					<option value="ASSISTENCIAL">Assistencial</option>
+					<option value="SOCIO">Sócio</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<textarea name="msg_dvd" id="msg_dvd" cols="30" rows="3" maxlength="1200" class="materialize-textarea" ng-model="form.msg_dvd" ng-minlength="4"></textarea>
+				<label for="msg_dvd">Mensagem</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12 center">
+				<button type="submit" class="waves-effect waves-red btn" ng-hide="!formFaleConosco.$valid">Enviar</button>
+				<button type="submit" disabled class="waves-effect waves-red btn" ng-hide="formFaleConosco.$valid">Preencha para enviar</button>
+			</div>
+		</div>
+
+	</form>
+</div>
+
+<div class="row">
+  <br/>
+	<div class="col s12">
+		<a href="#juridico-faq" class="waves-effect waves-red btn col s12">FAQ</a>
+	</div>
+  <br/><br/>
+	<div class="col s12">
+		<a class="waves-effect waves-red btn col s12" ng-click="openConvencao()">Convenção Coletiva</a>
+	</div>
+</div>
+
+<br /><br />

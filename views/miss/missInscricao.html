@@ -1,0 +1,277 @@
+<div class="row mb20">
+	<div class="col s12">
+		<a href="#missRegulamento" class="waves-effect waves-red btn col s12">Regulamento</a>
+	</div>
+</div>
+
+<h3>Miss Comerciária - Inscrição</h3>
+
+<div class="row">
+	<form class="col s12 mb10" method="post" id="formEnvio" enctype="multipart/form-data">
+
+		<h5 class="col s12">Dados Pessoais</h5>
+
+		<div class="input-field col s12">
+			<input id="nome_valor" type="text" class="nome_valor" name="nome_valor" maxlength="100" ng-required="true">
+			<label for="nome_valor">Nome</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="endereco_valor" type="text" class="endereco_valor" name="endereco_valor" maxlength="100" ng-required="true">
+			<label for="endereco_valor">Endereço</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="bairro_valor" type="text" class="bairro_valor" name="bairro_valor" maxlength="100" ng-required="true">
+			<label for="bairro_valor">Bairro</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cidade_valor" type="text" class="cidade_valor" name="cidade_valor" maxlength="60" ng-required="true">
+			<label for="cidade_valor">Cidade</label>
+		</div>
+
+		<div class="input-field col s12">
+			<select class="browser-default" name="estado_valor" id="estado_valor">
+				<option disabled selected>Estado</option>
+				<option value="AC">AC</option>
+				<option value="AL">AL</option>
+				<option value="AM">AM</option>
+				<option value="AP">AP</option>
+				<option value="BA">BA</option>
+				<option value="CE">CE</option>
+				<option value="DF">DF</option>
+				<option value="ES">ES</option>
+				<option value="GO">GO</option>
+				<option value="MA">MA</option>
+				<option value="MG">MG</option>
+				<option value="MS">MS</option>
+				<option value="PB">PB</option>
+				<option value="PE">PE</option>
+				<option value="PI">PI</option>
+				<option value="RJ">RJ</option>
+				<option value="RN">RN</option>
+				<option value="RO">RO</option>
+				<option value="RR">RR</option>
+				<option value="RS">RS</option>
+				<option value="SC">SC</option>
+				<option value="SE">SE</option>
+				<option value="SP">SP</option>
+				<option value="TO">TO</option>
+			</select>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="fone_residencial_valor" type="tel" class="telefone" name="fone_residencial_valor" maxlength="20">
+			<label for="fone_residencial_valor">Telefone Residencial</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="fone_celular_valor" type="tel" class="fone_celular_valor celular" name="fone_celular_valor" maxlength="20" ng-required="true">
+			<label for="fone_celular_valor">Celular</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="email_valor" type="email" class="email_valor" name="email_valor" maxlength="50">
+			<label for="email_valor">Email</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="idade_valor" type="tel" class="idade_valor" name="idade_valor" maxlength="50" min="16" max="99" ng-required="true">
+			<label for="idade_valor">Idade</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="nascimento_valor" type="tel" class="nascimento_valor" name="nascimento_valor" maxlength="40"  ng-required="true">
+			<label for="nascimento_valor">Data de Nascimento</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="altura_valor" type="tel" class="altura_valor" name="altura_valor" maxlength="4" ng-required="true">
+			<label for="altura_valor">Altura(cm)</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="peso_valor" type="number" class="peso_valor" name="peso_valor" maxlength="3" ng-required="true">
+			<label for="peso_valor">Peso(kg)</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="manequim_valor" type="number" class="manequim_valor" name="manequim_valor" min="30" max="60" ng-required="true">
+			<label for="manequim_valor">Manequim (número)</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="busto_valor" type="number" class="busto_valor" name="busto_valor" min="0" max="100" step="0.1" ng-required="true">
+			<label for="busto_valor">Busto</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cintura_valor" type="number" class="cintura_valor" name="cintura_valor" min="0" max="100" step="0.1" ng-required="true">
+			<label for="cintura_valor">Cintura</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="quadril_valor" type="number" class="quadril_valor" name="quadril_valor" min="0" max="100" step="0.1" ng-required="true">
+			<label for="quadril_valor">Quadril</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="calcado_valor" type="number" class="calcado_valor" name="calcado_valor" min="32" max="50" step="0.1" ng-required="true">
+			<label for="calcado_valor">Calçado</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cor_olhos_valor" type="text" class="cor_olhos_valor" name="cor_olhos_valor" ng-required="true">
+			<label for="cor_olhos_valor">Cor dos Olhos</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cor_cabelos_valor" type="text" class="cor_cabelos_valor" name="cor_cabelos_valor" maxlength="30" ng-required="true">
+			<label for="cor_cabelos_valor">Cor do Cabelo</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="etnia_valor" type="text" class="etnia_valor" name="etnia_valor" maxlength="50" ng-required="true">
+			<label for="etnia_valor">Etnia</label>
+		</div>
+
+		<h5 class="col s12">Tatuagem</h5>
+		<div class="section col s12">
+			<input name="tatuagem_valor" type="radio" id="tatuagem_valor[0]" value="NÃO" ng-model="tatuagens" />
+			<label for="tatuagem_valor[0]">Não</label>
+			<br>
+			<input name="tatuagem_valor" type="radio" id="tatuagem_valor[1]" value="SIM" ng-model="tatuagens"/>
+			<label for="tatuagem_valor[1]">Sim</label>
+		</div>
+
+		<div class="input-field col s12"
+			ng-if="tatuagens == 'SIM'">
+			<input id="tatuagem_onde_valor" type="text" class="tatuagem_onde_valor" name="tatuagem_onde_valor" maxlength="50">
+			<label for="tatuagem_onde_valor">Onde</label>
+		</div>
+
+		<h5 class="col s12">Piercing</h5>
+		<div class="section col s12">
+			<input name="piercing_valor" type="radio" id="piercing_valor[0]" value="NÃO" ng-model="piercing" />
+			<label for="piercing_valor[0]">Não</label>
+			<br>
+			<input name="piercing_valor" type="radio" id="piercing_valor[1]" value="SIM" ng-model="piercing"/>
+			<label for="piercing_valor[1]">Sim</label>
+		</div>
+
+		<div class="input-field col s12"
+			ng-if="piercing == 'SIM'">
+			<input id="piercing_onde_valor" type="text" class="piercing_onde_valor" name="piercing_onde_valor" maxlength="50">
+			<label for="piercing_onde_valor">Onde</label>
+		</div>
+
+		<h5 class="col s12">Fumante</h5>
+		<div class="section col s12">
+			<input name="fumante_valor" type="radio" id="fumante_valor[0]" value="NÃO" />
+			<label for="fumante_valor[0]">Não</label>
+			<br>
+			<input name="fumante_valor" type="radio" id="fumante_valor[1]" value="SIM"/>
+			<label for="fumante_valor[1]">Sim</label>
+		</div>
+
+		<h5 class="col s12">Filhos</h5>
+		<div class="section col s12">
+			<input name="filhos_valor" type="radio" id="filhos_valor[0]" value="NÃO" />
+			<label for="filhos_valor[0]">Não</label>
+			<br>
+			<input name="filhos_valor" type="radio" id="filhos_valor[1]" value="SIM"/>
+			<label for="filhos_valor[1]">Sim</label>
+		</div>
+
+		<h5 class="col s12">Pratica atividade física</h5>
+		<div class="section col s12">
+			<input name="atividade_fisica_valor" type="radio" id="atividade_fisica_valor[0]" value="NÃO" />
+			<label for="atividade_fisica_valor[0]">Não</label>
+			<br>
+			<input name="atividade_fisica_valor" type="radio" id="atividade_fisica_valor[1]" value="SIM"/>
+			<label for="atividade_fisica_valor[1]">Sim</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="ja_participou_valor" type="text" class="ja_participou_valor" name="ja_participou_valor" maxlength="50" ng-required="true">
+			<label for="ja_participou_valor">Já participou de algum concurso de Miss? Qual?</label>
+		</div>
+
+		<h5 class="col s12">Dados da Empresa</h5>
+
+		<div class="input-field col s12">
+			<input id="getEmpAtivaByName" type="text" class="getEmpAtivaByName" name="getEmpAtivaByName" maxlength="100" ng-required="true">
+			<label for="getEmpAtivaByName">Nome da Empresa</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cnpj" type="tel" class="getEmpByCnpj" name="getEmpByCnpj" ng-required="true">
+			<label for="cnpj">CNPJ da empresa</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cargo_empresa_valor" type="text" class="cargo_empresa_valor" name="cargo_empresa_valor" maxlength="50" ng-required="true">
+			<label for="cargo_empresa_valor">Cargo/Função</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="telefone_empresa_valor" type="tel" class="telefone" name="telefone_empresa_valor" maxlength="20"  ng-required="true">
+			<label for="telefone_empresa_valor">Telefone Empresa</label>
+		</div>
+
+		<div class="input-field col s7">
+			<input type="number" name="periodo_empresa_valor" id="periodo_empresa_valor" class="text" ng-required="true">
+			<label for="periodo_empresa_valor">Trabalho na empresa há</label>
+		</div>
+		<div class="input-field col s5">
+			<select class="browser-default" name="periodo_empresa" id="periodo_empresa">
+				<option selected value="DIAS">DIAS</option>
+				<option value="MESES">MESES</option>
+			</select>
+		</div>
+
+		<h5 class="col s12">Foto do rosto</h5>
+		<div class="file-field input-field col s12">
+			<div class="btn">
+				<span>Escolher arquivo</span>
+			<input type="file" name="foto_rosto_valor" id="foto_rosto_valor" onchange="savepic( this )">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text">
+			</div>
+		</div>
+
+		<h5 class="col s12">Foto de corpo inteiro</h5>
+		<div class="file-field input-field col s12">
+			<div class="btn">
+				<span>Escolher arquivo</span>
+			<input type="file" name="foto_corpo_valor" id="foto_corpo_valor" onchange="savepic( this )">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text">
+			</div>
+		</div>
+
+
+		<h5 class="col s12">Como soube da existência desse evento?</h5>
+	
+		<div class="input-field col s12">
+			<input id="como_soube_valor" type="text" class="como_soube_valor" name="como_soube_valor" maxlength="100" ng-required="true">
+			<label for="como_soube_valor">Resposta</label>
+		</div>
+
+		<input type="submit" name="Enviar" id="Enviar" title="Enviar Inscrição" value="Enviar Inscrição" class="waves-effect waves-red btn col s12 button-enviar"></form>
+
+	<div class="row">
+		<p class="section col s12"> <strong>ATENÇÃO!</strong>
+			<br>
+			PREENCHER FICHA DE INSCRIÇÃO COM TODOS OS DADOS E 2 FOTOS,
+		SENDO 1 DE ROSTO E 1 DE CORPO INTEIRO. ENVIAR POR CORREIO:MISS
+		COMERCIÁRIA 2015 - SINDICATO DOS COMERCIÁRIOS DE SÃO PAULO
+		RUA FORMOSA, 99 - CENTRO - ANHANGABAÚ - SÃO PAULO - SP - CEP 01049-000
+		6.º ANDAR, DEPARTAMENTO DE FORMAÇÃO PROFISSIONAL, ESPORTE E CULTURA
+		OU PELO E-MAIL MISSCOMERCIARIA@GMAIL.COM
+		</p>
+	</div>
+</div>

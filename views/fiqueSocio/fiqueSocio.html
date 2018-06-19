@@ -1,0 +1,307 @@
+<div class="row mb20">
+	<div class="col s6">
+		<a href="#socios" class="waves-effect waves-red btn col s12">Vantagens</a>
+	</div>
+	<div class="col s6">
+		<a href="#sociosRegulamento" class="waves-effect waves-red btn col s12">Regulamento</a>
+	</div>
+</div>
+
+<h3>Fique Sócio</h3>
+
+<div class="row">
+	<form class="col s12" id="socio" name="socio" method="post" action="http://app.comerciarios.org.br:8095/socioonline/recebe.php">
+
+		<h5 class="col s12">Dados do Empregador</h5>
+
+		<div class="input-field col s12">
+			<input id="cnpj" type="tel" class="cnpj" name="cnpj" ng-required="true">
+			<label for="cnpj">CNPJ da empresa</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input type="text" id="razao" name="razao" maxlength="40" ng-required="true">
+			<label for="razao">Razão social</label>
+		</div>
+
+		<h5 class="col s12">Endereço Comercial</h5>
+
+		<div class="input-field col s12">
+			<input id="cepcom" type="tel" class="cepcom" name="cepcom" maxlength="40" ng-required="true">
+			<label for="cepcom">CEP Comercial</label>
+		</div>
+
+		<div class="input-field col s8">
+			<input id="enderecocom" type="text" class="enderecocom" name="enderecocom" maxlength="60">
+			<label for="enderecocom">Logradouro</label>
+		</div>
+
+		<div class="input-field col s4">
+			<input id="numerocom" type="tel" class="numerocom" name="numerocom" maxlength="5">
+			<label for="numerocom">Número</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="bairrocom" type="text" class="bairrocom" name="bairrocom" maxlength="60">
+			<label for="bairrocom">Bairro</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cidadec" type="text" class="cidadec" name="cidade" maxlength="50" ng-required="true">
+			<label for="cidadec">Cidade</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="estado" type="text" class="estado" name="estado" maxlength="50" disabled>
+			<label for="estado">SP</label>
+		</div>
+
+		<h5 class="col s12">Dados Pessoais</h5>
+
+		<div class="input-field col s12">
+			<input id="nome" type="text" class="nome" name="nome" maxlength="100" ng-required="true">
+			<label for="nome">Nome Completo</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="dtnascimento" type="tel" class="dtnascimento" name="dtnascimento" maxlength="40"  ng-required="true">
+			<label for="dtnascimento">Data de Nascimento</label>
+		</div>
+
+		<div class="section col s12">
+			<h5 class="">Sexo:</h5>
+			<input name="sexo" type="radio" id="M" value="M" />
+			<label for="M">Masculino</label>
+			<input name="sexo" type="radio" id="F" value="F" />
+			<label for="F">Feminino</label>
+		</div>
+
+		<div class="input-field col s12">
+			<select class="browser-default" name="estadocivil">
+				<option disabled selected>Selecione o Estado Civil</option>
+				<option value="Solteiro (a)">Solteiro (a)</option>
+				<option value="Casado (a)">Casado (a)</option>
+				<option value="Divorciado (a)">Divorciado (a)</option>
+				<option value="Viuvo (a)">Viúvo (a)</option>
+				<option value="Amaziado (a)">Amaziado (a)</option>
+			</select>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cargo" type="text" class="cargo" name="cargo" maxlength="40">
+			<label for="cargo">Cargo</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cid_origem" type="text" class="cid_origem" name="cid_origem" maxlength="50">
+			<label for="cid_origem">Cidade de Origem</label>
+		</div>
+
+		<div class="input-field col s12">
+			<select class="browser-default" name="estado_origem">
+				<option disabled selected>Estado de Origem</option>
+				<option value="AC">AC</option>
+				<option value="AL">AL</option>
+				<option value="AM">AM</option>
+				<option value="AP">AP</option>
+				<option value="BA">BA</option>
+				<option value="CE">CE</option>
+				<option value="DF">DF</option>
+				<option value="ES">ES</option>
+				<option value="GO">GO</option>
+				<option value="MA">MA</option>
+				<option value="MG">MG</option>
+				<option value="MS">MS</option>
+				<option value="PB">PB</option>
+				<option value="PE">PE</option>
+				<option value="PI">PI</option>
+				<option value="RJ">RJ</option>
+				<option value="RN">RN</option>
+				<option value="RO">RO</option>
+				<option value="RR">RR</option>
+				<option value="RS">RS</option>
+				<option value="SC">SC</option>
+				<option value="SE">SE</option>
+				<option value="SP">SP</option>
+				<option value="TO">TO</option>
+			</select>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="rg" type="tel" class="rg" name="rg" maxlength="15">
+			<label for="rg">Número do RG</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cpf" type="tel" class="cpf" name="cpf" maxlength="40" ng-required="true">
+			<label for="cpf">CPF</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="nomemae" type="text" class="nomemae" name="nomemae" maxlength="50">
+			<label for="nomemae">Nome da Mãe</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="nomepai" type="text" class="nomepai" name="nomepai" maxlength="50">
+			<label for="nomepai">Nome do Pai</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="numcarteira" type="tel" class="numcarteira" name="numcarteira" maxlength="50" ng-required="true">
+			<label for="numcarteira">Número Carteira Profissional</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="seriecarteira" type="tel" class="seriecarteira" name="seriecarteira" maxlength="40" ng-required="true">
+			<label for="seriecarteira">Série da Carteira</label>
+		</div>
+
+		<h5 class="col s12">Endereço Residencial</h5>
+
+		<div class="input-field col s12">
+			<input id="cep_resi" type="tel" class="cep_resi" name="cep_resi" maxlength="11" ng-required="true">
+			<label for="cep_resi">Cep Residencial</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="logre_res" type="text" class="logre_res" name="logre_res" maxlength="60">
+			<label for="logre_res">Logradouro</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="ruares" type="text" class="ruares" name="ruares" maxlength="60" ng-required="true">
+			<label for="ruares">Nome da Rua</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="numerores" type="tel" class="numerores" name="numerores" maxlength="6">
+			<label for="numerores">Número</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="complementores" type="text" class="complementores" name="complementores" maxlength="60">
+			<label for="complementores">Complemento</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="bairrores" type="text" class="bairrores" name="bairrores" maxlength="60">
+			<label for="bairrores">Bairro</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="cidaderes" type="text" class="cidaderes" name="cidaderes" maxlength="50">
+			<label for="cidaderes">Cidade</label>
+		</div>
+
+		<h5 class="col s12">Meios de Contato</h5>
+
+		<div class="input-field col s12">
+			<input id="telresidencial" type="tel" class="telresidencial" name="telresidencial" maxlength="20">
+			<label for="telresidencial">Telefone Residencial</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="telcomercial" type="tel" class="telcomercial" name="telcomercial" maxlength="20">
+			<label for="telcomercial">Telefone Comercial</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="celular" type="tel" class="celular" name="celular" maxlength="20" ng-required="true">
+			<label for="celular">Celular</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="tel_recado" type="tel" class="tel_recado" name="tel_recado" maxlength="20">
+			<label for="tel_recado">Telefone para Recado</label>
+		</div>
+
+		<div class="input-field col s12">
+			<input id="email" type="email" class="email" name="email" maxlength="50">
+			<label for="email">Email</label>
+		</div>
+
+		<h5 class="col s12">Escolha uma Forma de Pagamento</h5>
+
+		<div class="section col s12">
+			<input name="formapag" type="radio" id="Carne" value="Carne" ng-model="formaPagamento" />
+			<label for="Carne">Carnê</label>
+			<br>
+			<input name="formapag" type="radio" id="DESCONTO_EM_FOLHA" value="DESCONTO_EM_FOLHA"
+			ng-model="formaPagamento"/>
+			<label for="DESCONTO_EM_FOLHA">Desconto em Folha</label>
+			<br>
+			<input name="formapag" type="radio" id="DEBITO_AUTOMATICO" value="DEBITO_AUTOMATICO"
+			ng-model="formaPagamento" />
+			<label for="DEBITO_AUTOMATICO">Debito automático (Bradesco ou Itaú)</label>
+		</div>
+
+		<div class="section col s12"
+			ng-if="formaPagamento == 'DEBITO_AUTOMATICO' && formaPagamento != 'Carne'">
+			<br>
+			<h6 class="s12">Débito Automático</h6>
+			<input type="radio" name="banco" id="237" value="237" checked="checked">
+			<label for="237">Bradesco</label>
+			<br>
+			<input type="radio" name="banco" id="341" value="341" checked="checked">
+			<label for="341">Itau</label>
+		</div>
+		<div class="input-field col s12"
+			ng-if="formaPagamento == 'DEBITO_AUTOMATICO' && formaPagamento != 'Carne'">
+			<input id="ag_banco" type="tel" class="ag_banco" name="ag_banco" maxlength="6">
+			<label for="ag_banco">Agência</label>
+		</div>
+		<div class="input-field col s12"
+			ng-if="formaPagamento == 'DEBITO_AUTOMATICO' && formaPagamento != 'Carne'">
+			<input id="n_conta" type="tel" class="n_conta" name="n_conta" maxlength="9">
+			<label for="n_conta">Nº da Conta</label>
+		</div>
+
+		<div class="input-field col s12"
+			ng-if="formaPagamento == 'DESCONTO_EM_FOLHA' && formaPagamento != 'Carne'">
+			<input id="reg_empresa" type="text" class="reg_empresa" name="reg_empresa" maxlength="30">
+			<label for="reg_empresa">Nº da Chapa ou de Registro da Empresa</label>
+		</div>
+
+		<h5 class="col s12">Endereço para envio de correspondência</h5>
+
+		<div class="section col s12">
+			<input name="e_residencial" type="radio" id="R" value="R" />
+			<label for="R">Residencial</label>
+			<br>
+			<input name="e_residencial" type="radio" id="C" value="C" />
+			<label for="C">Comercial</label>
+		</div>
+
+		<h5 class="col s12">Cadastro de Dependentes: Possui Dependentes?</h5>
+
+		<p class="col s12">O Sindicato considera como dependentes esposa, companheira com mais de 5 anos de vida conjugal comprovada, filhos até 18 anos, filhas solteiras até 18 anos, filhos e filhas legalmente adotados dentro dos mesmos limites até 18 anos. </p>
+
+		<div class="section col s12 mb10">
+			<h5 class="s12">Dependentes:</h5>
+			<input name="possuidep" type="radio" id="mostratudo" value="mostratudo"
+			ng-model="PossuiDependentes"
+			ng-click="scrollTop()"
+			 />
+			<label for="mostratudo">Sim</label>
+			<input name="possuidep" type="radio" id="mostranada" value="mostranada" ng-model="PossuiDependentes"  />
+			<label for="mostranada">Não</label>
+		</div>
+
+		<div class="section col s12"
+		ng-if="PossuiDependentes == 'mostratudo'"
+		ng-include="'views/fiqueSocio/fiqueSocio_dependentes.html'">			
+		</div>
+
+		<p class="col s12">						
+			Nota: A qualquer momento o documento de identidade ou certidões poderão vir a ser solicitados.
+		</p>
+
+		<p class="col s12">
+			Para ficar sócio do Sindicato a mensalidade é de R$20,00 (sujeito a alterações)
+		</p>
+
+		<input type="submit" name="BTEnvia" title="Ficar Socio" value="Ficar Sócio" class="waves-effect waves-red btn col s12">
+
+	</form>
+</div>

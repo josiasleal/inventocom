@@ -1,0 +1,109 @@
+<div class="col s12">
+
+	<h5>Tabela de Preços</h5>
+
+	<table class="table-responsive">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Apartamento Comum</th>
+				<th>Suíte (casal)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in resultsOne">
+				<td>{{item.titulo}}</td>
+				<td>{{item.valorUm | currency:"R$"}}</td>
+				<td>{{item.valorDois | currency:"R$"}}</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<table class="table-responsive">
+		<thead>
+			<tr>
+				<th colspan="3">Outros Parentes (serão considerados: Pai, Mãe, Sogro, Sogra, Irmãos(as), do sócio, Filhos maiores, Genros, Noras, Netos e Netas)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in resultsTwo">
+				<td>{{item.titulo}}</td>
+				<td>{{item.valorUm | currency:"R$"}}</td>
+				<td>{{item.valorDois | currency:"R$"}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class="table-responsive">
+		<thead>
+			<tr>
+				<th colspan="3">Convidados do associado</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in resultsThree">
+				<td>{{item.titulo}}</td>
+				<td>{{item.valorUm | currency:"R$"}}</td>
+				<td>{{item.valorDois | currency:"R$"}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class="table-responsive">
+		<thead>
+			<tr>
+				<th colspan="3">Sócio Usuário</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in resultsFour">
+				<td>{{item.titulo}}</td>
+				<td>{{item.valorUm | currency:"R$"}}</td>
+				<td>{{item.valorDois | currency:"R$"}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class="table-responsive">
+		<thead>
+			<tr>
+				<th colspan="3">Outro parentes do Sócio Usuário</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in resultsFive">
+				<td>{{item.titulo}}</td>
+				<td>{{item.valorUm | currency:"R$"}}</td>
+				<td>{{item.valorDois | currency:"R$"}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class="table-responsive">
+		<thead>
+			<tr>
+				<th colspan="3">Convidados do Sócio Usuário</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in resultsSix">
+				<td>{{item.titulo}}</td>
+				<td>{{item.valorUm | currency:"R$"}}</td>
+				<td>{{item.valorDois | currency:"R$"}}</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					Emolumento (taxa de administração): R$19,50 <br>
+					Estacionamento para associados: R$9,00. Convidados e outros: R$15,00 ao dia. <br>
+					Obs.: Todo hóspede menor de 0 a 03 anos não paga diária
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="row">
+	<div class="col s12">
+		<a class="waves-effect waves-red btn col s12" href="#coloniaDeFerias">Voltar</a>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<div class="row">
+	<div class="col s12 center">
+		<img src="img/historia.jpg" class="responsive-img z-depth-2"></div>
+	<div class="col s12">
+		<h3>História</h3>
+		<p>
+			Até 1940 existiam duas entidades representantes da categoria: Sindicato dos Comerciários de
+
+São Paulo e Sindicato União dos Comerciários, com a fusão a entidade passou a se chamar
+
+Sindicato dos Empregados no Comércio de São Paulo, tendo como presidente Miguel de
+
+Souza Santos. Em 15 de maio de 1941 a entidade teve o reconhecimento como entidade
+
+sindical.
+			<br>
+			<br>
+			Durante a presidência de Ricardo Patah, a entidade passou a se chamar Sindicato dos
+
+Comerciários de São Paulo. Atualmente representa mais de 500 mil trabalhadores em sua
+
+basa, é o maior Sindicato da América Latina. Sempre atuante, tem como lema o “Trabalho
+
+Decente e a Justiça Social”.
+			<br>
+			<br> <h4>Galeria dos Presidentes</h4>
+			<div class="row">
+				<ul class="collapsible" data-collapsible="accordion">
+					<li ng-repeat="presidente in presidentes">
+						<div class="collapsible-header"> <i class="mdi-content-add small left primary-color-dark"></i>
+							<span ng-bind="presidente.ano" on-finish-render="ngRepeatFinished"></span>
+						</div>
+						<div class="collapsible-body">
+							<p ng-bind-html="presidente.nome"></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<ul class="collapsible" data-collapsible="accordion">
+					<li ng-repeat="item in itens">
+						<div class="collapsible-header"> <i class="mdi-content-add small left primary-color-dark"></i>
+							<span ng-bind="item.title" on-finish-render="ngRepeatFinished"></span>
+						</div>
+						<div class="collapsible-body">
+							<p ng-bind-html="item.txt"></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</p>
+	</div>
+</div>

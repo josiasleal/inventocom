@@ -1,0 +1,15 @@
+<h3 class="mb15">Responsabilidade Social</h3>
+
+<div class="row">
+	<ul class="collapsible" data-collapsible="accordion">
+			<li ng-repeat="item in itens">
+				<div class="collapsible-header">
+				<i class="mdi-content-add small left primary-color-dark"></i>
+				<span  ng-bind="item.title" on-finish-render="ngRepeatFinished"></span>					
+				</div>
+				<div class="collapsible-body">
+					<p ng-bind="item.txt"></p>
+				</div>
+			</li>
+		</ul>
+</div>

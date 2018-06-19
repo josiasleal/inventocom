@@ -1,0 +1,23 @@
+<div class="row">
+
+    <div class="col s12">
+        <h3 ng-bind="title"></h3>
+        <p ng-bind="endereco"></p>
+        <ul class="collection phone">
+            <a href="tel:{{telefone}}">
+                <li class="collection-item"><i class="mdi-communication-phone phone-icon"></i>
+                    Telefone: <span ng-bind="telefone"></span>
+                </li>
+            </a>
+        </ul>
+        <p ng-bind="email"></p>
+        <p ng-bind-html="map"></p>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col s12 m12 center">
+        <a href="#subsedes" class="waves-effect waves-red btn">Voltar para Subsedes</a>
+    </div>
+</div>

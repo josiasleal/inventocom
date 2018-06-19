@@ -1,0 +1,27 @@
+<div class="row">
+
+	<div class="col s12">
+		<h3>Diretoria</h3>
+		<p>
+
+			<div class="row">
+				<ul class="collapsible list-avatar" data-collapsible="accordion">
+					<li ng-repeat="item in itens">
+						<div class="collapsible-header">
+							<i class="mdi-content-add small left primary-color-dark"></i>
+							<span ng-bind="item.cargo" on-finish-render="ngRepeatFinished"></span>
+						</div>
+						<div class="collapsible-body">
+							<img class="circle" ng-src="{{item.img}}" alt="{{item.nome}}">
+							<h5><strong ng-bind="item.nome"></strong></h5>
+							<div>
+								<span ng-bind="item.cargo"></span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</p>
+	</div>
+</div>

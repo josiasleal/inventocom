@@ -1,0 +1,42 @@
+<form class="row" ng-submit="filtrarParceiros(formFiltrar)" ng-model="formFull">
+	<div class="col s12">
+		<h4>Filtros</h4>
+	</div>
+	<div class="col s12">
+		<h6>Região</h6>
+		<div class="section">
+			<input type="checkbox" id="Centro" name="filtro[regiao][]" value="Centro" ng-model="formFiltrar.centro" />
+			<label for="Centro">Centro</label>
+		</div>
+		<div class="section">
+			<input type="checkbox" id="ZonaLeste" name="filtro[regiao][]" value="Zona Leste" ng-model="formFiltrar.Zona_Leste" />
+			<label for="ZonaLeste">Zona Leste</label>
+		</div>
+		<div class="section">
+			<input type="checkbox" id="ZonaNorte" name="filtro[regiao][]" value="Zona Norte" ng-model="formFiltrar.Zona_Norte" />
+			<label for="ZonaNorte">Zona Norte</label>
+		</div>
+		<div class="section">
+			<input type="checkbox" id="ZonaSul" name="filtro[regiao][]" value="Zona Sul" ng-model="formFiltrar.Zona_Sul" />
+			<label for="ZonaSul">Zona Sul</label>
+		</div>
+		<div class="section">
+			<input type="checkbox" id="ZonaOeste" name="filtro[regiao][]" value="Zona Oeste" ng-model="formFiltrar.Zona_Oeste" />
+			<label for="ZonaOeste">Zona Oeste</label>
+		</div>
+		<h6>Percentual de desconto</h6>
+		<div class="section">
+			<div class="input-field col s6">
+				<input id="first_name" type="text" class="validate percent" ng-model="formFiltrar.de">
+				<label for="first_name">De (%)</label>
+			</div>
+			<div class="input-field col s6">
+				<input id="first_name" type="text" class="validate percent" ng-model="formFiltrar.ate">
+				<label for="first_name">Até (%)</label>
+			</div>
+		</div>
+		<div class="col s12 m12 center">
+			<button type="submit" class="waves-effect waves-red btn col s12">Filtrar</button>
+		</div>
+	</div>
+</form>

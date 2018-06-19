@@ -1,0 +1,41 @@
+<div class="row">
+	<h3>Convênios diversos</h3>
+	<img src="img/conveniosDiversos.jpg" alt="" width="100%">
+</div>
+
+<div ng-include="'views/parceiros/_filtros.html'"></div>
+
+<div class="row mb10">
+
+	<ul class="collection faculdades">
+
+		<li class="collection-item" ng-repeat="convenio in ConveniosDiversos" on-finish-render="ngRepeatFinished">
+			<h4 class="title" ng-bind="convenio.faculdade"></h4>
+
+			<ul class="collapsible" data-collapsible="accordion">
+				<li>
+					<div class="collapsible-header"> <i class="mdi-content-add small left primary-color-dark"></i>
+						Cursos:
+					</div>
+					<div class="collapsible-body">
+						<p ng-bind-html="convenio.curso">							
+						</p>
+					</div>
+				</li>
+			</ul>
+
+			<h5>Endereço:</h5>
+			<p ng-bind-html="convenio.endereco">
+			</p>
+
+			<p class="obs" ng-bind-html="convenio.obs">				
+			</p>
+		</li>
+	</ul>
+
+	<div class="col s12 m12 center mb10">
+		<div class="waves-effect waves-red btn col s12" ng-click="atualizar()" ng-hide="dados == 0">Ver mais</div>
+	</div>
+
+</div>
+
